@@ -2,6 +2,15 @@ import discord
 from discord.ext import commands
 import requests
 from datetime import datetime
+import os
+
+TOKEN = os.getenv("TOKEN")  # Railway'den TOKEN'ı çek
+
+if not TOKEN:
+    raise ValueError("❌ TOKEN bulunamadı! Railway'de değişkeni kontrol et.")
+
+print(f"✅ Çekilen TOKEN: {TOKEN[:5]}... (Gizlendi)")  # Logda sadece ilk 5 karakteri göster
+
 
 TOKEN = "YOUR_BOT_TOKEN"  # Buraya kendi Discord bot token'ını gir
 API_URL = "https://vakit.vercel.app/api/timesFromPlace?country=Turkey&region=Istanbul&city=Istanbul"
