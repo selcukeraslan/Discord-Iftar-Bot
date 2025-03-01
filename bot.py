@@ -6,7 +6,11 @@ from datetime import datetime
 TOKEN = "YOUR_BOT_TOKEN"  # Buraya kendi Discord bot token'ını gir
 API_URL = "https://vakit.vercel.app/api/timesFromPlace?country=Turkey&region=Istanbul&city=Istanbul"
 
-bot = commands.Bot(command_prefix="!")
+# İntents Tanımla
+intents = discord.Intents.default()
+intents.message_content = True  # Bot'un mesaj içeriğini okuyabilmesi için
+
+bot = commands.Bot(command_prefix="!", intents=intents)  # Güncellenmiş bot nesnesi
 
 @bot.event
 async def on_ready():
